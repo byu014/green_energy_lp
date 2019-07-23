@@ -42,7 +42,7 @@ def perspectiveTransform(img):
     # if random.randint(0,5) >= 1:
     #     return img
     img = cv2.cvtColor(img, cv2.COLOR_RGB2RGBA)
-    rotationMatrix = cv2.getRotationMatrix2D((random.randint(0,img.shape[1]), random.randint(0,img.shape[1])), random.randint(-5,5), 1)
+    rotationMatrix = cv2.getRotationMatrix2D((random.randint(0,img.shape[1]), random.randint(0,img.shape[1])), random.randint(-2,2), 1)
     img = cv2.warpAffine(img, rotationMatrix, (img.shape[1], img.shape[0]) ,borderMode=cv2.BORDER_CONSTANT, borderValue = [0, 0, 0, 0])
     warp1 = random.randint(-1,1) * (1 / (1 + math.exp(-random.randint(-20,-8))))
     warp2 = random.randint(-1,1) * (1 / (1 + math.exp(-random.randint(-20,-8))))

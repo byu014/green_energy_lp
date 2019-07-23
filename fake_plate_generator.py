@@ -15,6 +15,7 @@ class FakePlateGenerator():
         number_dir = fake_resource_dir + "/numbers/" 
         letter_dir = fake_resource_dir + "/letters/" 
         plate_dir = fake_resource_dir + "/plate_background_use/"
+        df_dir = fake_resource_dir + "/df/"
 
         character_y_size = 113
         plate_y_size = 164
@@ -26,6 +27,7 @@ class FakePlateGenerator():
         self.letters = self.load_image(letter_dir, character_y_size)
 
         self.numbers_and_letters = dict(self.numbers, **self.letters)
+        self.df = self.load_image(df_dir, character_y_size)
 
         #we only use blue plate here
         self.plates = self.load_image(plate_dir, plate_y_size)
@@ -91,8 +93,16 @@ class FakePlateGenerator():
         self.add_character_to_plate(img, plate_img, self.character_position_x_list_part_1[1])
         plate_name += "%s"%(character,)
 
-        for i in range(6):
-            character, img =  self.get_radom_sample(self.numbers_and_letters)
+        character, img =  self.get_radom_sample(self.df)
+        self.add_character_to_plate(img, plate_img, self.character_position_x_list_part_2[0])
+        plate_name += character
+
+        character, img =  self.get_radom_sample(self.numbers_and_letters)
+        self.add_character_to_plate(img, plate_img, self.character_position_x_list_part_2[1])
+        plate_name += character
+
+        for i in range(2,6):
+            character, img =  self.get_radom_sample(self.numbers)
             self.add_character_to_plate(img, plate_img, self.character_position_x_list_part_2[i])
             plate_name += character
 
