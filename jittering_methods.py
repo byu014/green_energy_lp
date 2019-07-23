@@ -7,7 +7,7 @@ import numpy as np
 import cv2
 import uuid
 
-def jittering_blur(img, max_sigma = 3):
+def jittering_blur(img, max_sigma = 2):
     kernel_list = [3, 5, 7, 11]
     kernel = random.choice(kernel_list)
     sigma = random.uniform(0, max_sigma)
