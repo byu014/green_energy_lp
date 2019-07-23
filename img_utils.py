@@ -10,12 +10,12 @@ import shutil
 import time
 
 def reset_folder(path):
-     try:
-         shutil.rmtree(path)
-     except:
-          pass
+    #  try:
+    #      shutil.rmtree(path)
+    #  except:
+    #       pass
     
-     time.sleep(1)     
+    #  time.sleep(1)     
      
      try:
          os.mkdir(path)
