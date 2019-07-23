@@ -11,6 +11,7 @@ def jittering_blur(img, max_sigma = 2):
     kernel_list = [3, 5, 7, 11]
     kernel = random.choice(kernel_list)
     sigma = random.uniform(0, max_sigma)
+    resizer = random.randint(0,3)
     if resizer > 0:
         img = cv2.resize(img,(img.shape[1]//resizer,img.shape[0]//resizer))
         img = cv2.resize(img,(img.shape[1],img.shape[0]))
