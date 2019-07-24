@@ -7,14 +7,18 @@ import numpy as np
 import cv2
 import uuid
 
+def resample(img, resizeRange=3):
+    resizer = random.randint(0,resizeRange)
+    if resizer > 0:
+        img = cv2.resize(img,(img.shape[1]//resizer,img.shape[0]//resizer))
+        img = cv2.resize(img,(img.shape[1],img.shape[0]))
+    return img
+
 def jittering_blur(img, max_sigma = 2):
     kernel_list = [3, 5, 7, 11]
     kernel = random.choice(kernel_list)
     sigma = random.uniform(0, max_sigma)
     resizer = random.randint(0,3)
-    if resizer > 0:
-        img = cv2.resize(img,(img.shape[1]//resizer,img.shape[0]//resizer))
-        img = cv2.resize(img,(img.shape[1],img.shape[0]))
     return  cv2.GaussianBlur(img, (kernel,kernel), sigma)   
 
 def jittering_color(img, h1 = 90, h2 = 100, s1 = 90, s2 = 100, v1 = 90, v2 = 100):

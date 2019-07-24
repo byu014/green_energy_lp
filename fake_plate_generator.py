@@ -8,14 +8,22 @@ import cv2
 
 from img_utils import *
 from jittering_methods import *
+from parse_args import parse_args
+
+args = parse_args()
+fake_resource_dir  = sys.path[0] + "/fake_resource/" 
+output_dir = args.img_dir
+resample_range = args.resample 
+gaussian_range = args.gaussian 
+noise_range = args.noise
+chinese_dir = fake_resource_dir + "/chinese/"
+number_dir = fake_resource_dir + "/numbers/" 
+letter_dir = fake_resource_dir + "/letters/" 
+plate_dir = fake_resource_dir + "/plate_background_use/"
+df_dir = fake_resource_dir + "/df/"
 
 class FakePlateGenerator():
     def __init__(self, fake_resource_dir, plate_size):
-        chinese_dir = fake_resource_dir + "/chinese/"
-        number_dir = fake_resource_dir + "/numbers/" 
-        letter_dir = fake_resource_dir + "/letters/" 
-        plate_dir = fake_resource_dir + "/plate_background_use/"
-        df_dir = fake_resource_dir + "/df/"
 
         character_y_size = 113
         plate_y_size = 164
@@ -115,19 +123,18 @@ class FakePlateGenerator():
         return plate_img, plate_name
 
 if __name__ == "__main__":
-    fake_resource_dir  = sys.path[0] + "/fake_resource/" 
-    output_dir = sys.path[0] + "/test_plate/"
     img_size = (400, 90)
 
-    fake_plate_generator = FakePlateGenerator(fake_resource_dir, img_size)
     reset_folder(output_dir)
-    numImgs = int(sys.argv[1]) if len(sys.argv) > 1 else 1000
+    numImgs = args.num_imgs
     for i in range(0, numImgs):
+        fake_plate_generator = FakePlateGenerator(fake_resource_dir, img_size)
         plate, plate_name = fake_plate_generator.generate_one_plate()
         plate = underline(plate)
         plate = jittering_color(plate)
-        plate = add_noise(plate)
-        plate = jittering_blur(plate)
+        plate = add_noise(plate,noise_range)
+        plate = jittering_blur(plate,gaussian_range)
+        plate = resample(plate, resample_range)
         plate = jittering_scale(plate)
         plate = perspectiveTransform(plate)
 
