@@ -136,6 +136,6 @@ if __name__ == "__main__":
         plate = jittering_blur(plate,gaussian_range)
         plate = resample(plate, resample_range)
         plate = jittering_scale(plate)
-        plate = perspectiveTransform(plate)
+        # plate = perspectiveTransform(plate)
 
         save_random_img(output_dir, plate)
