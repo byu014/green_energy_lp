@@ -11,8 +11,9 @@ from PIL import Image, ImageFilter, ImageEnhance
 def resample(img, resizeRange):
     resizer = random.randint(3,resizeRange)
     if resizer > 0:
+        h,w = img.shape[0:2]
         img = cv2.resize(img,(img.shape[1]//resizer,img.shape[0]//resizer))
-        img = cv2.resize(img,(img.shape[1],img.shape[0]))
+        img = cv2.resize(img,(w,h))
     return img
 
 def jittering_blur(img, max_sigma):
