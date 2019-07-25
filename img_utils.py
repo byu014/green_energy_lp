@@ -172,5 +172,6 @@ def make_affine_transform(from_shape, to_shape,
     return M
 
 def save_random_img(dir, img):
-    name = dir + str(uuid.uuid1()) + ".png"
+    name = dir + str(uuid.uuid1()) + ".jpg"
     cv2.imwrite(name, img)
+    return name

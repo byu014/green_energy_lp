@@ -1,0 +1,10 @@
+/Users/sky/Documents/Aibee/green_energy_lp/test_plate/630df07a-af23-11e9-8199-186590d706dd.jpg;|吉|A|D|9|1|7|2|6|
+/Users/sky/Documents/Aibee/green_energy_lp/test_plate/63146b00-af23-11e9-9754-186590d706dd.jpg;|陕|S|D|1|1|9|7|4|
+/Users/sky/Documents/Aibee/green_energy_lp/test_plate/631940e4-af23-11e9-8063-186590d706dd.jpg;|港|B|F|W|3|0|3|9|
+/Users/sky/Documents/Aibee/green_energy_lp/test_plate/631e2a5a-af23-11e9-a8c8-186590d706dd.jpg;|陕|B|F|P|2|6|8|0|
+/Users/sky/Documents/Aibee/green_energy_lp/test_plate/6322ffe4-af23-11e9-952a-186590d706dd.jpg;|粤|B|F|P|0|1|7|9|
+/Users/sky/Documents/Aibee/green_energy_lp/test_plate/63280426-af23-11e9-90a2-186590d706dd.jpg;|浙|R|F|J|8|0|5|1|
+/Users/sky/Documents/Aibee/green_energy_lp/test_plate/632d0cfa-af23-11e9-a98a-186590d706dd.jpg;|琼|P|D|T|7|1|1|6|
+/Users/sky/Documents/Aibee/green_energy_lp/test_plate/63320890-af23-11e9-b1b1-186590d706dd.jpg;|豫|H|F|K|6|3|9|1|
+/Users/sky/Documents/Aibee/green_energy_lp/test_plate/6336ff9e-af23-11e9-9640-186590d706dd.jpg;|蒙|R|D|V|4|7|3|2|
+/Users/sky/Documents/Aibee/green_energy_lp/test_plate/633c1c9a-af23-11e9-8e70-186590d706dd.jpg;|赣|N|F|8|4|0|4|7|
