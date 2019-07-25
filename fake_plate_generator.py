@@ -159,4 +159,4 @@ if __name__ == "__main__":
         plate = random_motion_blur(plate,motion_blur)
         plate = random_brightness(plate, brightness)
         file_name = save_random_img(output_dir, plate)
-        write_to_txt(fo,file_name,plate_chars)
+        write_to_txt(fo,file_name,plate_chars) 
