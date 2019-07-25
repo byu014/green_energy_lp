@@ -13,6 +13,12 @@ def parse_args():
                         type=int,help="Range of gaussian blur")
     parser.add_argument('--noise','-n', default=10,
                         type=int,help="range of noise strength")
+    parser.add_argument('--rank_blur','-rb', default=3,
+                        type=int,help="range of kernel size for rank blur (odd integer)")
+    parser.add_argument('--motion_blur','-mb', default=5,
+                        type=int,help="range of motion blur")
+    parser.add_argument('--brightness','-b', default=0.2,
+                        type=float,help="range of brightness")
     args = parser.parse_args()
     return args
 

@@ -6,6 +6,7 @@ import sys
 import numpy as np
 import cv2
 import uuid
+from PIL import Image, ImageFilter, ImageEnhance
 
 def resample(img, resizeRange):
     resizer = random.randint(3,resizeRange)
@@ -56,4 +57,38 @@ def jittering_scale(image, min_scale = 0.5, max_scale = 1.0):
     image = cv2.resize(image, (w, h), interpolation = cv2.INTER_CUBIC)
 
     return image
+
+def random_rank_blur(img, rank_blur_range):
+    img = Image.fromarray(img)
+    w, h = img.size[0], img.size[1]
+    img = img.resize((2*w, 2*h))
+    rank = np.random.randint(0, rank_blur_range * rank_blur_range)
+    img = img.filter(ImageFilter.RankFilter(rank_blur_range, rank))
+    img = img.resize((w, h))
+    img = np.array(img) 
+    return img
+
+def random_motion_blur(img, motion_blur_range):
+    img_array = img
+    angle = np.random.randint(0, 360)
+    motion_blur_range = np.random.randint(2, motion_blur_range)
+    M = cv2.getRotationMatrix2D((motion_blur_range / 2, motion_blur_range / 2), angle, 1)
+    motion_blur_kernel = np.diag(np.ones(motion_blur_range))
+    motion_blur_kernel = cv2.warpAffine(motion_blur_kernel, M, (motion_blur_range, motion_blur_range))
+
+    motion_blur_kernel = motion_blur_kernel / motion_blur_range
+    img_array = cv2.filter2D(img_array, -1, motion_blur_kernel)
+    
+    cv2.normalize(img_array, img_array, 0, 255, cv2.NORM_MINMAX)
+    # img = Image.fromarray(img_array)
+    img = img_array
+    return img
+
+def random_brightness(img, brightness_jitter):
+    img = Image.fromarray(img)
+    brightness_jitter_need = np.random.uniform(-brightness_jitter, brightness_jitter)
+    img_brightness = ImageEnhance.Brightness(img)
+    img = img_brightness.enhance(1+brightness_jitter_need)
+    img = np.array(img) 
+    return img
 
