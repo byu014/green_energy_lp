@@ -172,6 +172,7 @@ def make_affine_transform(from_shape, to_shape,
     return M
 
 def save_random_img(dir,plate_chars, img):
-    name = dir + plate_chars + "_" + str(uuid.uuid1()) + ".jpg"
+    #name = dir + plate_chars + "_" + str(uuid.uuid1()) + ".jpg"
+    name = os.path.join(dir, str(uuid.uuid1()) + ".jpg")
     cv2.imwrite(name, img)
     return name
