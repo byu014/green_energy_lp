@@ -141,7 +141,7 @@ def write_to_txt(fo,img_name, plate_characters):
     fo.write("%s" % line)
 
 if __name__ == "__main__":
-    img_size = (400, 90)
+    img_size = (240, 70)
 
     reset_folder(output_dir)
     numImgs = args.num_imgs
@@ -149,15 +149,15 @@ if __name__ == "__main__":
     for i in range(0, numImgs):
         fake_plate_generator = FakePlateGenerator(fake_resource_dir, img_size)
         plate, plate_name, plate_chars = fake_plate_generator.generate_one_plate()
-        #plate = underline(plate)
-        plate = jittering_color(plate)
-        plate = add_noise(plate,noise_range)
-        #plate = jittering_blur(plate,gaussian_range)
-        plate = resample(plate, resample_range)
-        plate = jittering_scale(plate)
-        # plate = perspectiveTransform(plate)
-        #plate = random_rank_blur(plate,rank_blur)
-        plate = random_motion_blur(plate,motion_blur)
-        plate = random_brightness(plate, brightness)
+        # #plate = underline(plate)
+        # plate = jittering_color(plate)
+        # plate = add_noise(plate,noise_range)
+        # #plate = jittering_blur(plate,gaussian_range)
+        # plate = resample(plate, resample_range)
+        # plate = jittering_scale(plate)
+        # # plate = perspectiveTransform(plate)
+        # #plate = random_rank_blur(plate,rank_blur)
+        # plate = random_motion_blur(plate,motion_blur)
+        # plate = random_brightness(plate, brightness)
         file_name = save_random_img(output_dir,plate_chars.upper(), plate)
         write_to_txt(fo,file_name,plate_chars) 
