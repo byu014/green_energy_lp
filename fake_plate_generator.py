@@ -221,7 +221,7 @@ if __name__ == "__main__":
         plate = jittering_scale(plate)
         # plate = perspectiveTransform(plate)
         #plate = random_rank_blur(plate,rank_blur)
-        plate = random_motion_blur(plate,motion_blur)
+        #plate = random_motion_blur(plate,motion_blur)
         plate = random_brightness(plate, brightness)
         file_name = save_random_img(output_dir,plate_chars.upper(), plate)
         write_to_txt(fo,file_name,plate_chars) 

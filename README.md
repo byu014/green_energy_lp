@@ -15,6 +15,7 @@ python fake_plate_generator.py
 #### '--noise', '-n' : put range of noise strength
 ```sh
 python fake_plate_generator.py -id `pwd`/output/ -ni 100 -r 3 -g 4 -n 5
+python fake_plate_generator.py -id  /Users/fei/tmp/fakeplate/energy -ni 100 -r 1 -g 1  -n 1
 ```
 
 #### Images are stored in the folder test_plate
