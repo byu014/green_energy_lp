@@ -155,12 +155,14 @@ class FakePlateGenerator():
 
         overlay_img(character, plate, mask, start_x, start_y)
 
-    def generate_one_plate(self):
+    def generate_one_plate(self, char):
         plate_chars = ""
         _, plate_img = self.get_radom_sample(self.plates)
         plate_name = ""
     
-        character, img = self.get_radom_sample(self.chinese)
+        #character, img = self.get_radom_sample(self.chinese)
+        character = char
+        img = self.chinese[char]
         self.add_character_to_plate(img, plate_img, self.character_position_x_list_part_1[0])
         plate_name += "%s"%(character,)
         plate_chars += character
@@ -212,7 +214,7 @@ if __name__ == "__main__":
     fo = codecs.open(output_dir + 'labels.txt', "w", encoding='utf-8')
     for i in range(0, numImgs):
         fake_plate_generator = FakePlateGenerator(fake_resource_dir, img_size)
-        plate, plate_name, plate_chars = fake_plate_generator.generate_one_plate()
+        plate, plate_name, plate_chars = fake_plate_generator.generate_one_plate(args.province)
         #plate = underline(plate)
         plate = jittering_color(plate)
         plate = add_noise(plate,noise_range)

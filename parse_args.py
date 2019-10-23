@@ -1,3 +1,4 @@
+#coding=utf-8
 import argparse
 import sys
 
@@ -19,6 +20,8 @@ def parse_args():
                         type=int,help="range of motion blur")
     parser.add_argument('--brightness','-b', default=0.2,
                         type=float,help="range of brightness")
+    parser.add_argument('--province','-p', default='京',
+                        type=str,help="range of brightness")
     args = parser.parse_args()
     return args
 
